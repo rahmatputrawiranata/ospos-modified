@@ -1,0 +1,79 @@
+# redirect to public page
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^/public$
+RewriteRule ^(.*)/$ /public/ [R=301,L]
+
+# disable directory browsing
+# For security reasons, Option all cannot be overridden.
+Options +ExecCGI +Includes +IncludesNOEXEC +SymLinksIfOwnerMatch -Indexes
+
+# prevent folder listing
+IndexIgnore *
+
+# Apache 2.4
+<IfModule authz_core_module>
+  # secure htaccess file
+  <Files .htaccess>
+    Require all denied
+  </Files>
+
+  # prevent access to PHP error log
+  <Files error_log>
+    Require all denied
+  </Files>
+
+  # prevent access to LICENSE
+  <Files LICENSE>
+    Require all denied
+  </Files>
+
+  # prevent access to csv, txt and md files
+  <FilesMatch "\.(csv|txt|md|yml|json|lock)$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+
+# Apache 2.2
+<IfModule !authz_core_module>
+  # secure htaccess file
+  <Files .htaccess>
+    Order allow,deny
+    Deny from all
+    Satisfy all
+  </Files>
+
+  # prevent access to PHP error log
+  <Files error_log>
+    Order allow,deny
+    Deny from all
+    Satisfy all
+  </Files>
+
+  # prevent access to LICENSE
+  <Files LICENSE>
+    Order allow,deny
+    Deny from all
+    Satisfy all
+  </Files>
+
+  # prevent access to csv, txt and md files
+  <FilesMatch "\.(csv|txt|md|yml|json|lock)$">
+    Order allow,deny
+    Deny from all
+    Satisfy all
+  </FilesMatch>
+</IfModule>
+RewriteCond %{HTTP_HOST} ^ospos\.rahmatputrawiranata\.dev\.php\.or\.id$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.ospos\.rahmatputrawiranata\.dev\.php\.or\.id$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?$ "http\:\/\/ospos\.rahmatputrawiranata\.dev\.php\.or\.id\/public" [R=301,L]
+
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php55” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddType application/x-httpd-ea-php55 .php .php5 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

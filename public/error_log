@@ -1,0 +1,29 @@
+[22-Nov-2017 09:40:02 Asia/Jakarta] Analytics Host not reachable! Error: Connection timed out
+[22-Nov-2017 04:16:34 America/New_York] PHP Fatal error:  Unsupported operand types in /home/rahmatp/public_html/ospos/application/views/items/form.php on line 280
+[22-Nov-2017 04:17:34 America/New_York] PHP Fatal error:  Unsupported operand types in /home/rahmatp/public_html/ospos/application/views/items/form.php on line 280
+[24-Nov-2017 04:18:48 America/New_York] PHP Fatal error:  Call to undefined function exclude() in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 5
+[24-Nov-2017 04:18:53 America/New_York] PHP Fatal error:  Call to undefined function exclude() in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 5
+[24-Nov-2017 04:25:05 America/New_York] PHP Fatal error:  Call to undefined function multiexplode() in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 5
+[24-Nov-2017 04:25:25 America/New_York] PHP Fatal error:  Call to undefined function multiexplode() in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 5
+[24-Nov-2017 04:25:25 America/New_York] PHP Fatal error:  Call to undefined function multiexplode() in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 5
+[24-Nov-2017 04:51:27 America/New_York] PHP Fatal error:  Call to undefined function multiexplode() in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 5
+[24-Nov-2017 04:51:52 America/New_York] PHP Fatal error:  Call to undefined function multiexplode() in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 5
+[24-Nov-2017 04:52:32 America/New_York] PHP Fatal error:  Call to undefined function multiexplode() in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 5
+[24-Nov-2017 04:53:28 America/New_York] PHP Fatal error:  Call to undefined function multiexplode() in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 7
+[24-Nov-2017 04:56:15 America/New_York] PHP Fatal error:  Call to undefined function multiexplode() in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 5
+[24-Nov-2017 04:57:46 America/New_York] PHP Fatal error:  Call to undefined function multiexplode() in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 5
+[24-Nov-2017 08:57:12 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 832
+[24-Nov-2017 08:57:17 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 832
+[24-Nov-2017 23:39:11 America/New_York] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 180
+[24-Nov-2017 23:47:09 America/New_York] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 180
+[24-Nov-2017 23:47:12 America/New_York] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 180
+[24-Nov-2017 23:49:18 America/New_York] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 180
+[24-Nov-2017 23:49:21 America/New_York] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 180
+[24-Nov-2017 23:49:37 America/New_York] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 180
+[24-Nov-2017 23:50:51 America/New_York] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 180
+[24-Nov-2017 23:51:04 America/New_York] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 180
+[24-Nov-2017 23:53:59 America/New_York] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 180
+[24-Nov-2017 23:55:18 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/rahmatp/public_html/ospos/application/views/sales/register.php on line 874
+[28-Nov-2017 14:19:07 Asia/Bangkok] PHP Fatal error:  Call to undefined function ROUND_DOWN() in /home/rahmatp/public_html/ospos/application/models/Sale.php on line 1326
+[28-Nov-2017 14:22:41 Asia/Bangkok] PHP Fatal error:  Call to undefined function ROUND_DOWN() in /home/rahmatp/public_html/ospos/application/models/Sale.php on line 1326
+[05-Dec-2017 13:35:42 Asia/Bangkok] Analytics Host not reachable! Error: Connection refused
