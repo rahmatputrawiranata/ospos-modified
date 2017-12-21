@@ -103,7 +103,7 @@ if(isset($success))
 	<table class="sales_table_100" id="register">
 		<thead>
 			<tr>
-				<th style="width: 5%;"><?php echo $this->lang->line('common_delete'); ?></th>
+				<th style="width: 5%;" class="deletede"><?php echo $this->lang->line('common_delete'); ?></th>
 				<th style="width: 15%;"><?php echo $this->lang->line('sales_item_number'); ?></th>
 				<th style="width: 35%;"><?php echo $this->lang->line('sales_item_name'); ?></th>
 				<th style="width: 10%;"><?php echo $this->lang->line('sales_price'); ?></th>
@@ -135,7 +135,7 @@ if(isset($success))
 			?>
 					<?php echo form_open($controller_name."/edit_item/$line", array('class'=>'form-horizontal', 'id'=>'cart_'.$line)); ?>
 						<tr>
-							<td><?php echo anchor($controller_name."/delete_item/$line", '<span class="glyphicon glyphicon-trash"></span>');?></td>
+							<td class="deletede"><?php echo anchor($controller_name."/delete_item/$line", '<span class="glyphicon glyphicon-trash"></span>');?></td>
 							<td><?php echo $item['item_number']; ?></td>
 							<td style="align: center;">
 								<?php echo $item['name']; ?><br /> <?php if($item['stock_type'] == '0'): echo '[' . to_quantity_decimals($item['in_stock']) . ' in ' . $item['stock_name'] . ']'; endif; ?>
@@ -146,7 +146,7 @@ if(isset($success))
 							if($items_module_allowed)
 							{
 							?>
-								<td><?php echo form_input(array('name'=>'price', 'class'=>'form-control input-sm', 'value'=>to_currency_no_money($item['price']), 'tabindex'=>++$tabindex));?></td>
+								<td><?php echo form_input(array('name'=>'price', 'class'=>'price form-control input-sm', 'value'=>to_currency_no_money($item['price']), 'tabindex'=>++$tabindex));?></td>
 							<?php
 							}
 							else
@@ -169,14 +169,13 @@ if(isset($success))
 								}
 								else
 								{								
-									echo form_input(array('name'=>'quantity', 'class'=>'yardr form-control input-sm', 'value'=>to_quantity_decimals($item['quantity']), 'tabindex'=>++$tabindex));
+									echo form_input(array('name'=>'quantity', 'class'=>'quantity form-control input-sm', 'value'=>to_quantity_decimals($item['quantity']), 'tabindex'=>++$tabindex));
 								}
 								
 								?>
-								<input type="text" name="yardq"  class="yardq required form-control input-sm">
 							</td>
 
-							<td><?php echo form_input(array('name'=>'discount', 'class'=>'form-control input-sm', 'value'=>to_decimals($item['discount'], 0), 'tabindex'=>++$tabindex));?></td>
+							<td><?php echo form_input(array('name'=>'discount', 'class'=>'discount form-control input-sm', 'value'=>to_decimals($item['discount'], 0), 'tabindex'=>++$tabindex));?></td>
 							<td><?php echo to_currency($item['price']*$item['quantity']-$item['price']*$item['quantity']*$item['discount']/100); ?></td>
 							<td><a href="javascript:document.getElementById('<?php echo 'cart_'.$line ?>').submit();" title=<?php echo $this->lang->line('sales_update')?> ><span class="glyphicon glyphicon-refresh"></span></a></td>
 						</tr>
@@ -594,27 +593,6 @@ if(isset($success))
 <script type="text/javascript">
 $(document).ready(function()
 {
-												//receive quantity//
-												
-												var lenghtinput = $('.yardr').val() * $('#configu').val();
-											
-													$(".yardq").val(lenghtinput);
-											
-													$(".yardr").keyup(function(){
-														var lenghtinput = $('.yardr').val() * $('#configu').val();
-													
-														$(".yardq").val(lenghtinput);
-													});
-												
-													$(".yardq").keyup(function(){
-													});
-														var lenghtinput = $('.yardq').val() / $('#configu').val();
-													
-														$(".yardr").val(lenghtinput);
-
-
-var disbled 
-
 	$("#item").autocomplete(
 	{
 		source: '<?php echo site_url($controller_name."/item_search"); ?>',
@@ -826,48 +804,44 @@ function check_payment_type()
 		$(".giftcard-input").attr('disabled', true);
 		$(".non-giftcard-input").attr('disabled', false);
 	}
+
+	//quantity
+	<?php 
+	$person_id =$this->session->userdata('person_id');
+	if($this->Employee->has_grant('sales_quantity', $person_id)){
+		echo '$(".quantity").attr("disabled", false);';
+	
+	}else{
+		echo '$(".quantity").attr("disabled", true);';
+	}?>
+
+	//price
+		<?php 
+	$person_id =$this->session->userdata('person_id');
+	if($this->Employee->has_grant('sales_price', $person_id)){
+		echo '$(".price").attr("disabled", false);';
+	
+	}else{
+		echo '$(".price").attr("disabled", true);';
+	}?>
+	//discount
+		<?php 
+	$person_id =$this->session->userdata('person_id');
+	if($this->Employee->has_grant('sales_discount', $person_id)){
+		echo '$(".discount").attr("disabled", false);';
+	
+	}else{
+		echo '$(".discount").attr("disabled", true);';
+	}?>
+	//delete
+		<?php 
+	$person_id =$this->session->userdata('person_id');
+	if(!$this->Employee->has_grant('sales_delete', $person_id)){
+		echo '$(".deletede").css("display", "none");';
+	}?>
 }
 </script>
-<?php 
 
-       $person_id = $this->session->userdata('person_id');
-		if($this->Employee->has_grant('suspended_delete_item', $person_id)){
-		    echo "<script type='text/javascript'>";
-		    echo "document.getElementById('delted').style.display = 'none'";
-		    
-		    echo "</script>";
-		}
+	
 
-?>
-
-<?php 
-
-       $person_id = $this->session->userdata('person_id');
-		if(!$this->Employee->has_grant('discount_item_sales', $person_id)){
-		    echo "<script type='text/javascript'>";
-		    echo "document.getElementById('delted').style.display = 'none'";
-		    
-		    echo "</script>";
-		    echo "<script type='text/javascript'>";
-		    echo "document.getElementById('discount').disabled = 'true'";
-		    
-		    echo "</script>";
-		}
-
-?>
-
-<?php 
-
-       $person_id = $this->session->userdata('person_id');
-		if($this->Employee->has_grant('quantity_edit_item', $person_id)){
-		    echo "document.getElementById('disbled').disabled = 'true'";
-		    
-		    echo "</script>";
-		     echo "<script type='text/javascript'>";
-		    echo "document.getElementById('yardq').disabled = 'true'";
-		    
-		    echo "</script>";
-		}
-
-?>
 <?php $this->load->view("partial/footer"); ?>
